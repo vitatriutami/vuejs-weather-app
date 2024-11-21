@@ -1,4 +1,18 @@
-<script setup></script>
+<script setup>
+  import { reactive } from 'vue'
+
+  const searchTerm = reactive({
+    query: '',
+    timeout: null
+  })
+
+  const handleSearch = () => {
+    clearTimeout(searchTerm.timeout)
+    searchTerm.timeout = setTimeout(async () => {
+      const res = await fetch(`http://api.weatherapi.com/v1/search.json?key=ea967b703edb4914b62153351242111&q=${searchTerm.query}`)
+    }, 500);
+  }
+</script>
 
 <template>
   <div>
@@ -10,6 +24,8 @@
           type="text"
           placeholder="Search for a place"
           class="rounded-r-lg p-2 border-0 outline-0 focus:ring-2 focus:ring-indigo-600 ring-inset w-full"
+          v-model="searchTerm.query"
+          @input = "handleSearch"
         />
       </div>
     </form>
