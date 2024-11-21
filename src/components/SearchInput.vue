@@ -18,6 +18,8 @@ const handleSearch = () => {
       const data = await res.json()
       searchTerm.results = data
       console.log(searchTerm.results)
+    } else {
+      searchTerm.results = null
     }
   }, 500)
 }
@@ -40,10 +42,12 @@ const handleSearch = () => {
     </form>
     <!-- search suggestions -->
     <div class="bg-white my-2 rounded-lg shadow-lg">
-      <div v-for="place in searchTerm.results" :key="place.id">
+      <div v-if="searchTerm.results !== null">
+        <div v-for="place in searchTerm.results" :key="place.id">
         <button class="px-3 my-2 hover:text-indigo-600 hover:font-bold w-full text-left">
           {{ place.name }}, {{ place.region }}, {{ place.country }}
         </button>
+      </div>
       </div>
     </div>
   </div>
