@@ -19,5 +19,8 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
 import SearchInput from './components/SearchInput.vue'
+
+const places = ref([])
 </script>
