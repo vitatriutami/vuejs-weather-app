@@ -17,12 +17,20 @@ const handleSearch = () => {
 
       const data = await res.json()
       searchTerm.results = data
-      console.log(searchTerm.results)
     } else {
       searchTerm.results = null
     }
   }, 500)
 }
+
+const getWeather = async (id) => {
+ const res = await fetch(
+  `http://api.weatherapi.com/v1/forecast.json?key=ea967b703edb4914b62153351242111&q=id:${id}&days=3&aqi=no&alerts=no`
+ )
+ const data = await res.json()
+ console.log(data)
+}
+
 </script>
 
 <template>
@@ -44,10 +52,13 @@ const handleSearch = () => {
     <div class="bg-white my-2 rounded-lg shadow-lg">
       <div v-if="searchTerm.results !== null">
         <div v-for="place in searchTerm.results" :key="place.id">
-        <button class="px-3 my-2 hover:text-indigo-600 hover:font-bold w-full text-left">
-          {{ place.name }}, {{ place.region }}, {{ place.country }}
-        </button>
-      </div>
+          <button
+            @click="getWeather(place.id)"
+            class="px-3 my-2 hover:text-indigo-600 hover:font-bold w-full text-left"
+          >
+            {{ place.name }}, {{ place.region }}, {{ place.country }}
+          </button>
+        </div>
       </div>
     </div>
   </div>
