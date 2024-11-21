@@ -31,8 +31,7 @@ const getWeather = async (id) => {
   )
   const data = await res.json()
 
-  emit('place-data')
-  console.log(data)
+  emit('place-data', data)
 }
 </script>
 

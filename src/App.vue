@@ -13,8 +13,9 @@
     </div>
     <!-- Search -->
     <div>
-      <SearchInput />
+      <SearchInput @place-data="addPlace" />
     </div>
+    <!-- Weather cards -->
   </main>
 </template>
 
@@ -23,4 +24,8 @@ import { ref } from 'vue';
 import SearchInput from './components/SearchInput.vue'
 
 const places = ref([])
+
+const addPlace = (data) => {
+  places.value.push(data)
+}
 </script>
