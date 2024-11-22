@@ -32,6 +32,8 @@ const getWeather = async (id) => {
   const data = await res.json()
 
   emit('place-data', data)
+  searchTerm.query = ''
+  searchTerm.results = null
 }
 </script>
 
