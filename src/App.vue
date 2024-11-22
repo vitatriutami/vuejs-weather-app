@@ -36,6 +36,8 @@ const addPlace = (data) => {
 }
 
 const deletePlace = (name) => {
-  places.value = places.value.filter((p) => p.location.name !== name)
+  if (confirm('Are you sure?')) {
+    places.value = places.value.filter((p) => p.location.name !== name)
+  }
 }
 </script>
