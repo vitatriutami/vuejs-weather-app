@@ -49,14 +49,16 @@ const removePlace = (placeName) => {
     </div>
 
     <!-- info -->
-    <div v-show="showDetail">
-      <!-- Weather info component goes here -->
-      <WeatherInfo
-        :place="place"
-        @close-info="showDetail = false"
-        @remove-place="removePlace(place.location.name)"
-      />
-    </div>
+    <Transition>
+      <div v-show="showDetail">
+        <!-- Weather info component goes here -->
+        <WeatherInfo
+          :place="place"
+          @close-info="showDetail = false"
+          @remove-place="removePlace(place.location.name)"
+        />
+      </div>
+    </Transition>
 
     <!-- forecast btn -->
     <div class="flex justify-end items-center gap-1 mt-10">
