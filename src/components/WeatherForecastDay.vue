@@ -1,11 +1,17 @@
-<script setup></script>
+<script setup>
+defineProps({
+  day: Object,
+})
+</script>
 
 <template>
   <div class="mb-2 flex items-center justify-between">
     <table class="w-full">
       <tr>
         <!-- day of the week -->
-        <td class="w-1/3">[Day of the week]</td>
+        <td class="w-1/3">
+          {{ new Date(day.date).toLocaleDateString('en-us', { weekday: 'long' }) }}
+        </td>
 
         <!-- icon -->
         <td class="w-1/3">
