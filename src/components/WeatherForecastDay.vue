@@ -19,7 +19,9 @@ defineProps({
         </td>
 
         <!-- high/low temp -->
-        <td class="w-1/3 text-right">[Max temperature] / [Min temperature]</td>
+        <td class="w-1/3 text-right">
+          {{ Math.round(day.day.maxtemp_c) }} / {{ Math.round(day.day.mintemp_c) }}
+        </td>
       </tr>
     </table>
   </div>
