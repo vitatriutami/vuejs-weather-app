@@ -47,7 +47,7 @@ const showDetail = ref(false)
     <!-- info -->
     <div v-show="showDetail">
       <!-- Weather info component goes here -->
-      <WeatherInfo :place="place" />
+      <WeatherInfo :place="place" @close-info="showDetail = false" />
     </div>
 
     <!-- forecast btn -->
