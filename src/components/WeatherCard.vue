@@ -49,7 +49,7 @@ const removePlace = (placeName) => {
     </div>
 
     <!-- info -->
-    <Transition>
+    <Transition name="fade">
       <div v-show="showDetail">
         <!-- Weather info component goes here -->
         <WeatherInfo
@@ -68,3 +68,15 @@ const removePlace = (placeName) => {
     </div>
   </div>
 </template>
+
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>
