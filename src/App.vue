@@ -16,8 +16,8 @@
       <SearchInput @place-data="addPlace" />
     </div>
     <!-- Weather cards -->
-    <div>
-      <p v-for="place in places">{{ place.location.name }}</p>
+    <div v-for="(place, idx) in places" :key="idx">
+      <WeatherCard :place="place" />
     </div>
   </main>
 </template>
@@ -25,6 +25,7 @@
 <script setup>
 import { ref } from 'vue'
 import SearchInput from './components/SearchInput.vue'
+import WeatherCard from './components/WeatherCard.vue'
 
 const places = ref([])
 
