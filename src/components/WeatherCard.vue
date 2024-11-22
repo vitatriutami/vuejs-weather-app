@@ -39,7 +39,7 @@ const showDetail = ref(false)
     <BorderLine />
 
     <!-- forecast -->
-    <div v-for="(day, idx) in place.forecast.forcastday" :key="idx">
+    <div v-for="(day, idx) in place.forecast.forecastday" :key="idx">
       <!-- Weather daily forecast component goes here -->
       <WeatherForecastDay :day="day" />
     </div>

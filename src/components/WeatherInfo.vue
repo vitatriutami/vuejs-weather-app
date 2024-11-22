@@ -39,8 +39,8 @@ defineProps({
       <!-- Wind direction -->
       <div class="text-center flex-1">
         <i class="fa-solid fa-fan mb text-2xl"></i>
-        <p class="text-xl font-bold">[Wind direction]</p>
-        <p>{{ place.current.wind_dir }}</p>
+        <p class="text-xl font-bold">{{ place.current.wind_dir }}</p>
+        <p>direction</p>
       </div>
       <!-- Feels like -->
       <div class="text-center flex-1">
