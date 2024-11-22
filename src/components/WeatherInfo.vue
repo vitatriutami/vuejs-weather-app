@@ -1,4 +1,8 @@
-<script setup></script>
+<script setup>
+defineProps({
+  place: Object,
+})
+</script>
 
 <template>
   <div
@@ -15,19 +19,19 @@
       <!-- Wind speed -->
       <div class="text-center flex-1">
         <i class="fa-solid fa-wind mb text-2xl"></i>
-        <p class="text-xl font-bold">[Wind speed]</p>
+        <p class="text-xl font-bold">{{ place.current.wind_kph }} km/h</p>
         <p>wind</p>
       </div>
       <!-- Humidity level -->
       <div class="text-center flex-1">
         <i class="fa-solid fa-droplet mb text-2xl"></i>
-        <p class="text-xl font-bold">[Humidity]</p>
+        <p class="text-xl font-bold">{{ place.current.humidity }}%</p>
         <p>humidity</p>
       </div>
       <!-- Precipitation -->
       <div class="text-center flex-1">
         <i class="fa-solid fa-umbrella mb text-2xl"></i>
-        <p class="text-xl font-bold">[Precipitation]</p>
+        <p class="text-xl font-bold">{{ place.current.precip_mm }} mm</p>
         <p>precipitation</p>
       </div>
     </div>
@@ -36,24 +40,24 @@
       <div class="text-center flex-1">
         <i class="fa-solid fa-fan mb text-2xl"></i>
         <p class="text-xl font-bold">[Wind direction]</p>
-        <p>direction</p>
+        <p>{{ place.current.wind_dir }}</p>
       </div>
       <!-- Feels like -->
       <div class="text-center flex-1">
         <i class="fa-solid fa-temperature-half mb text-2xl"></i>
-        <p class="text-xl font-bold">[Feels like temperature]</p>
+        <p class="text-xl font-bold">{{ Math.round(place.current.feelslike_c) }}</p>
         <p>Feels</p>
       </div>
       <!-- UV -->
       <div class="text-center flex-1">
         <i class="fa-solid fa-sun mb text-2xl"></i>
-        <p class="text-xl font-bold">[UV index unit]</p>
+        <p class="text-xl font-bold">{{ place.current.uv }}</p>
         <p>UV index</p>
       </div>
     </div>
     <!-- Last update and delete -->
     <div class="flex justify-between items-center">
-      <h3 class="text-slate-900/50">last update: {date and time]</h3>
+      <h3 class="text-slate-900/50">last update: {{ place.current.last_updated }}</h3>
       <button>
         <i class="fa-solid fa-trash"></i>
       </button>
