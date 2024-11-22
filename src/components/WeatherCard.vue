@@ -1,6 +1,7 @@
 <script setup>
 import BorderLine from './BorderLine.vue'
 import WeatherForecastDay from './WeatherForecastDay.vue'
+import WeatherInfo from './WeatherInfo.vue'
 
 defineProps({
   place: Object,
@@ -43,6 +44,7 @@ defineProps({
     <!-- info -->
     <div>
       <!-- Weather info component goes here -->
+      <WeatherInfo :place="place" />
     </div>
 
     <!-- forecast btn -->
