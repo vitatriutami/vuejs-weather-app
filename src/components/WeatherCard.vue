@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { ref } from 'vue'
 import BorderLine from './BorderLine.vue'
 import WeatherForecastDay from './WeatherForecastDay.vue'
 import WeatherInfo from './WeatherInfo.vue'
@@ -47,12 +47,18 @@ const showDetail = ref(false)
     <!-- info -->
     <div v-show="showDetail">
       <!-- Weather info component goes here -->
-      <WeatherInfo :place="place" @close-info="showDetail = false" />
+      <WeatherInfo
+        :place="place"
+        @close-info="showDetail = false"
+        @remove-place="$emit('delete-place, place.location.name')"
+      />
     </div>
 
     <!-- forecast btn -->
     <div class="flex justify-end items-center gap-1 mt-10">
-      <button @click="showDetail = true">More <i class="fa-solid fa-arrow-right text-sm -mb-px"></i></button>
+      <button @click="showDetail = true">
+        More <i class="fa-solid fa-arrow-right text-sm -mb-px"></i>
+      </button>
     </div>
   </div>
 </template>
