@@ -7,7 +7,7 @@ defineProps({
 </script>
 
 <template>
-  <div class="text-white p-10 rounded-lg shadow-lg gap-6 mb-6 relative overflow-hidden">
+  <div class="text-white p-10 rounded-lg shadow-lg gap-6 mb-6 relative overflow-hidden bg-blue-500">
     <!-- Location & time -->
     <div class="mb-2 flex justify-between items-center">
       <div class="flex items-center justify-center gap-2">
@@ -27,7 +27,7 @@ defineProps({
     <!-- current weather -->
     <div class="text-center flex-1">
       <img :src="place.current.condition.icon" alt="icon" width="200" class="mx-auto -mb-10" />
-      <h1 class="text-9xl mb-2">{{ Math.round(place.current.temp_c) }}&deg;</h1>
+      <h1 class="text-9xl mb-2 -mr-4">{{ Math.round(place.current.temp_c) }}&deg;</h1>
       <p class="text-2xl">{{ place.current.condition.text }}</p>
     </div>
 

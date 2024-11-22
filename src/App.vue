@@ -16,8 +16,10 @@
       <SearchInput @place-data="addPlace" />
     </div>
     <!-- Weather cards -->
-    <div v-for="(place, idx) in places" :key="idx">
-      <WeatherCard :place="place" />
+    <div class="grid grid-cols-2 gap-4">
+      <div v-for="(place, idx) in places" :key="idx">
+        <WeatherCard :place="place" />
+      </div>
     </div>
   </main>
 </template>
