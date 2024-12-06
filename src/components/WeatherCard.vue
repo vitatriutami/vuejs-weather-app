@@ -18,7 +18,7 @@ const removePlace = (placeName) => {
 <template>
   <div
     :class="place.current.is_day === 1 ? 'bg-day' : 'bg-night'"
-    class="text-white p-10 rounded-lg shadow-lg gap-6 mb-6 relative overflow-hidden"
+    class="text-white p-10 rounded-lg shadow-lg gap-6 mb-6 hover:shadow-xl transition-shadow duration-300 relative overflow-hidden"
   >
     <!-- Location & time -->
     <div class="mb-2 flex justify-between items-center">
