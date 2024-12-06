@@ -18,17 +18,17 @@ const removePlace = (placeName) => {
 <template>
   <div
     :class="place.current.is_day === 1 ? 'bg-day' : 'bg-night'"
-    class="text-white p-6 sm:p-8 md:p-10 rounded-lg shadow-lg gap-6 mb-6 hover:shadow-xl transition-shadow duration-300 relative overflow-hidden"
+    class="text-white p-10 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 gap-6 mb-6 relative overflow-hidden"
   >
     <!-- Location & time -->
-    <div class="mb-4 flex flex-col sm:flex-row justify-between items-center gap-4">
-      <div class="flex items-center gap-2">
+    <div class="mb-1 md:mb-2 flex flex-col sm:flex-row justify-between items-center">
+      <div class="flex items-center justify-center gap-2">
         <i class="fa-solid fa-location-dot"></i>
-        <h1 class="text-2xl sm:text-3xl">{{ place.location.name }}</h1>
+        <h1 class="text-3xl">{{ place.location.name }}</h1>
       </div>
-      <div class="flex items-center gap-2">
+      <div class="flex items-center justify-center gap-2">
         <i class="fa-solid fa-clock"></i>
-        <h1 class="text-2xl sm:text-3xl">
+        <h1 class="text-2xl md:text-3xl">
           {{ new Date(place.location.localtime).getHours() }}:{{
             new Date(place.location.localtime).getMinutes()
           }}
@@ -36,29 +36,25 @@ const removePlace = (placeName) => {
       </div>
     </div>
 
-    <!-- Current weather -->
-    <div class="text-center flex-1 mb-4">
-      <img :src="place.current.condition.icon" alt="icon" class="mx-auto w-24 sm:w-32 md:w-40 -mb-8" />
-      <h1 class="text-6xl sm:text-7xl md:text-9xl mb-2 -mr-2 sm:-mr-4">
-        {{ Math.round(place.current.temp_c) }}&deg;
-      </h1>
-      <p class="text-xl sm:text-2xl">{{ place.current.condition.text }}</p>
+    <!-- current weather -->
+    <div class="text-center flex-1">
+      <img :src="place.current.condition.icon" alt="icon" class="mx-auto w-24 sm:w-36 md:w-50 -mb-6 md:-mb-10" />
+      <h1 class="text-6xl sm:text-7xl md:text-9xl mb-2 -mr-2">{{ Math.round(place.current.temp_c) }}&deg;</h1>
+      <p class="text-xl md:text-2xl">{{ place.current.condition.text }}</p>
     </div>
 
     <BorderLine />
 
-    <!-- Forecast -->
-    <div
-      v-for="(day, idx) in place.forecast.forecastday"
-      :key="idx"
-      class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4"
-    >
+    <!-- forecast -->
+    <div v-for="(day, idx) in place.forecast.forecastday" :key="idx">
+      <!-- Weather daily forecast component goes here -->
       <WeatherForecastDay :day="day" />
     </div>
 
-    <!-- Info -->
+    <!-- info -->
     <Transition name="fade">
       <div v-show="showDetail">
+        <!-- Weather info component goes here -->
         <WeatherInfo
           :place="place"
           @close-info="showDetail = false"
@@ -67,15 +63,14 @@ const removePlace = (placeName) => {
       </div>
     </Transition>
 
-    <!-- Forecast button -->
-    <div class="flex justify-end items-center gap-1 mt-8 sm:mt-10">
-      <button @click="showDetail = true" class="text-sm sm:text-base">
-        More <i class="fa-solid fa-arrow-right text-sm -mb-px"></i>
+    <!-- forecast btn -->
+    <div class="flex justify-end items-center gap-1 mt-10 md:mt-8">
+      <button @click="showDetail = true">
+        More <i class="fa-solid fa-arrow-right text-base md:text-sm -mb-px"></i>
       </button>
     </div>
   </div>
 </template>
-
 
 <style scoped>
 .bg-day {
@@ -97,4 +92,3 @@ const removePlace = (placeName) => {
   opacity: 0;
 }
 </style>
-
