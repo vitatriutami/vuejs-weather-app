@@ -1,10 +1,10 @@
 <template>
-  <main>
+  <main class="p-4 sm:p-6 lg:p-8">
     <!-- Date -->
-    <div class="text-center mb-8">
+    <div class="text-center mb-8 text-lg sm:text-xl lg:text-2xl font-semibold">
       {{
         new Date().toLocaleDateString('en-us', {
-          weekdat: 'long',
+          weekday: 'long',
           year: 'numeric',
           month: 'long',
           day: 'numeric',
@@ -12,12 +12,18 @@
       }}
     </div>
     <!-- Search -->
-    <div>
+    <div class="mb-6">
       <SearchInput @place-data="addPlace" />
     </div>
     <!-- Weather cards -->
-    <div class="grid grid-cols-2 gap-4">
-      <div v-for="(place, idx) in places" :key="idx">
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+    >
+      <div
+        v-for="(place, idx) in places"
+        :key="idx"
+        class="bg-white rounded-lg shadow-md p-4 sm:p-6 hover:shadow-lg transition-shadow duration-300"
+      >
         <WeatherCard :place="place" @delete-place="deletePlace" />
       </div>
     </div>
