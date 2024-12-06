@@ -28,7 +28,7 @@ const removePlace = (placeName) => {
       </div>
       <div class="flex items-center justify-center gap-2">
         <i class="fa-solid fa-clock"></i>
-        <h1 class="text-2xl md:text-3xl">
+        <h1 class="text-xl md:text-3xl">
           {{ new Date(place.location.localtime).getHours() }}:{{
             new Date(place.location.localtime).getMinutes()
           }}
