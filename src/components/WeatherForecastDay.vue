@@ -1,7 +1,7 @@
 <script setup>
 defineProps({
   day: Object,
-});
+})
 </script>
 
 <template>
@@ -21,7 +21,8 @@ defineProps({
 
           <!-- high/low temp -->
           <td class="w-1/3 text-right">
-            {{ Math.round(day.day.maxtemp_c) }} / {{ Math.round(day.day.mintemp_c) }}
+            {{ String(Math.round(day.day.maxtemp_c)).padStart(2, '0') }} /
+            {{ String(Math.round(day.day.mintemp_c)).padStart(2, '0') }}
           </td>
         </tr>
       </tbody>
