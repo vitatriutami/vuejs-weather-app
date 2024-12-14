@@ -22,8 +22,8 @@ const removePlace = (placeName) => {
   >
     <!-- Location & time -->
     <div class="mb-1 md:mb-2 flex flex-col sm:flex-row justify-between items-center">
-      <div class="flex items-center justify-center gap-2">
-        <i class="fa-solid fa-location-dot"></i>
+      <div class="flex items-center justify-center gap-2 text-center">
+        <i class="fa-solid fa-location-dot text-3xl"></i>
         <h1 class="text-3xl">{{ place.location.name }}</h1>
       </div>
       <div class="flex items-center justify-center gap-2">
