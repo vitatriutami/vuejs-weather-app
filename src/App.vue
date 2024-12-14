@@ -1,5 +1,5 @@
 <template>
-  <main class="px-2 sm:px-4 lg:px-8 py-4 md:py-8">
+  <main class="relative z-10 px-2 sm:px-4 lg:px-8 py-4 md:py-8">
     <!-- Date -->
     <div class="text-center mb-8 text-lg sm:text-xl lg:text-2xl font-semibold">
       {{
