@@ -15,7 +15,7 @@ defineProps({
       </button>
     </div>
 
-    <div class="flex items-center justify-between gap-6 mb-20">
+    <div class="flex items-end justify-between gap-6 mb-20">
       <!-- Wind speed -->
       <div class="text-center flex-1">
         <i class="fa-solid fa-wind mb text-2xl"></i>
