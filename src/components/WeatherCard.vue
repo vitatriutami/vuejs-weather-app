@@ -23,14 +23,14 @@ const removePlace = (placeName) => {
     <!-- Location & time -->
     <div class="mb-1 md:mb-2 flex flex-col sm:flex-row justify-between items-center">
       <div class="flex items-center justify-center gap-2 text-center">
-        <i class="fa-solid fa-location-dot text-3xl"></i>
+        <i class="fa-solid fa-location-dot text-xl"></i>
         <h1 class="text-3xl">{{ place.location.name }}</h1>
       </div>
       <div class="flex items-center justify-center gap-2">
         <i class="fa-solid fa-clock"></i>
         <h1 class="text-xl md:text-3xl">
-          {{ new Date(place.location.localtime).getHours() }}:{{
-            new Date(place.location.localtime).getMinutes()
+          {{ String(new Date(place.location.localtime).getHours()).padStart(2, '0') }}:{{
+            String(new Date(place.location.localtime).getMinutes()).padStart(2, '0')
           }}
         </h1>
       </div>
@@ -38,8 +38,14 @@ const removePlace = (placeName) => {
 
     <!-- current weather -->
     <div class="text-center flex-1">
-      <img :src="place.current.condition.icon" alt="icon" class="mx-auto w-24 sm:w-36 md:w-50 -mb-6 md:-mb-10" />
-      <h1 class="text-6xl sm:text-7xl md:text-9xl mb-2 -mr-2">{{ Math.round(place.current.temp_c) }}&deg;</h1>
+      <img
+        :src="place.current.condition.icon"
+        alt="icon"
+        class="mx-auto w-24 sm:w-36 md:w-50 -mb-2 md:-mb-10"
+      />
+      <h1 class="text-6xl sm:text-7xl md:text-9xl mb-2 -mr-2">
+        {{ Math.round(place.current.temp_c) }}&deg;
+      </h1>
       <p class="text-xl md:text-2xl">{{ place.current.condition.text }}</p>
     </div>
 
