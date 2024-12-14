@@ -41,7 +41,7 @@ const removePlace = (placeName) => {
       <img
         :src="place.current.condition.icon"
         alt="icon"
-        class="mx-auto w-24 sm:w-36 md:w-50 -mb-2 md:-mb-10"
+        class="mx-auto w-24 sm:w-36 md:w-50 -mb-2 md:-mb-6"
       />
       <h1 class="text-6xl sm:text-7xl md:text-9xl mb-2 -mr-2">
         {{ Math.round(place.current.temp_c) }}&deg;
