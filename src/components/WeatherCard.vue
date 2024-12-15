@@ -24,11 +24,11 @@ const removePlace = (placeName) => {
     <div class="mb-1 md:mb-2 flex flex-col sm:flex-row justify-between items-center">
       <div class="flex items-center justify-center gap-2">
         <i class="fa-solid fa-location-dot text-xl"></i>
-        <h1 class="text-3xl md:text-xl">{{ place.location.name }}</h1>
+        <h1 class="text-3xl md:text-xl font-semibold">{{ place.location.name }}</h1>
       </div>
       <div class="flex items-center justify-center gap-2">
         <i class="fa-solid fa-clock"></i>
-        <h1 class="text-xl md:text-2xl">
+        <h1 class="text-xl font-semibold">
           {{ String(new Date(place.location.localtime).getHours()).padStart(2, '0') }}:{{
             String(new Date(place.location.localtime).getMinutes()).padStart(2, '0')
           }}
