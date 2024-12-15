@@ -21,8 +21,8 @@ defineProps({
 
           <!-- high/low temp -->
           <td class="w-1/3 text-right">
-            {{ String(Math.round(day.day.maxtemp_c)).padStart(2, '0') }} /
-            {{ String(Math.round(day.day.mintemp_c)).padStart(2, '0') }}
+            {{ Math.round(day.day.maxtemp_c) }} /
+            {{ Math.round(day.day.mintemp_c) }}
           </td>
         </tr>
       </tbody>

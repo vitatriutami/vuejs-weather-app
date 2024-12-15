@@ -46,7 +46,7 @@ defineProps({
       <div class="text-center flex-1">
         <i class="fa-solid fa-temperature-half mb text-2xl"></i>
         <p class="text-xl font-bold">{{ Math.round(place.current.feelslike_c) }}</p>
-        <p>Feels</p>
+        <p>feels</p>
       </div>
       <!-- UV -->
       <div class="text-center flex-1">
